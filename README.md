@@ -6,7 +6,7 @@
 
 ## Example
 
-## Simple Single Function Call
+### Simple Single Function Call
 A simple function calling example from LiteLLM docs:
 
 ```python
