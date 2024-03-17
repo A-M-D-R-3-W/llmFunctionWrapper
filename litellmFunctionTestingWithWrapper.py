@@ -83,16 +83,16 @@ timeFunction = ToolWrapper(
 
 
 
-
 def test_parallel_function_call():
     try:
 
-        tools_list = [weatherFunction.to_dict(), timeFunction.to_dict()]
+        tools = [weatherFunction, timeFunction]
+        serialized_tools = [tool.to_dict() for tool in tools]
 
         print(FunctionRegistry.get_registry())
 
         # Step 1: send the conversation and available functions to the model
-        messages = [{"role": "user", "content": "What's the time and weather in San Francisco?"}]
+        messages = [{"role": "user", "content": "What's the weather and time in San Francisco? Also, please provide me the time in New York."}]
         # messages = [{"role": "user", "content": "What's the time in San Francisco, Tokyo, and Paris?"}]
 
         # model = "litellm/mistral/Mistral-large-cyzlm"
@@ -104,7 +104,7 @@ def test_parallel_function_call():
         response = litellm.completion(
             model = "mistral/Mistral-large-cyzlm",
             messages=messages,
-            tools=tools_list,
+            tools=serialized_tools,
             tool_choice="auto",  # auto is default, but we'll be explicit
         )
         print("\nFirst LLM Response:\n", response)
