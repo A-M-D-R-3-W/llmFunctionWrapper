@@ -11,8 +11,9 @@ A simple function calling example from LiteLLM docs:
 ```python
 import litellm
 import json
-# set openai api key
 import os
+
+# set openai api key
 os.environ['OPENAI_API_KEY'] = "" # litellm reads OPENAI_API_KEY from .env and sends the request
 # Example dummy function hard coded to return the same weather
 # In production, this could be your backend API or an external API
