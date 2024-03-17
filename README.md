@@ -6,6 +6,7 @@
 
 ### Example
 
+A simple function calling example from LiteLLM docs:
 
 ```python
 import litellm
