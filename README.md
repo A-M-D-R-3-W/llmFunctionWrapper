@@ -129,7 +129,7 @@ unserializedTools = [weatherFunction]
 tools = [tool.to_dict() for tool in unserializedTools]
 ```
 
-Is a direct replacement for
+Is a direct replacement for, and is identical to
 
 ```python
 tools = [
