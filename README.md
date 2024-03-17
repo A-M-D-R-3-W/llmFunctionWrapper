@@ -86,7 +86,7 @@ def get_current_weather(location, unit="fahrenheit"):
         return json.dumps({"location": location, "temperature": "unknown"})
 
 weatherFunction = ToolWrapper(
-    function_ref= get_current_weather,
+    function_ref=get_current_weather,
     purpose="Get the current weather in a given location.",
     location=str,
     location_description="The city and state, e.g. San Francisco, CA",
