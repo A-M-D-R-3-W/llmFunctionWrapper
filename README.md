@@ -159,7 +159,50 @@ tools = [
 
 Let's say we want two functions - one to get the weather (in the example above), and one to get the time.
 
+```python
+def get_current_weather(location, unit="fahrenheit"):
+    """Get the current weather in a given location"""
+    if "tokyo" in location.lower():
+        return json.dumps({"location": "Tokyo", "temperature": "10", "unit": "celsius"})
+    elif "san francisco" in location.lower():
+        return json.dumps({"location": "San Francisco", "temperature": "72", "unit": "fahrenheit"})
+    elif "paris" in location.lower():
+        return json.dumps({"location": "Paris", "temperature": "22", "unit": "celsius"})
+    else:
+        return json.dumps({"location": location, "temperature": "unknown"})
 
+weatherFunction = ToolWrapper(
+    function_ref=get_current_weather,
+    purpose="Get the current weather in a given location.",
+    location=str,
+    location_description="The city and state, e.g. San Francisco, CA",
+    unit=["celsius", "fahrenheit"],
+    unit_description="The unit of temperature, e.g. celsius or fahrenheit",
+    required=["location"],
+)
+
+def get_current_time(location):
+    """Get the current time in a given location"""
+    if "tokyo" in location.lower():
+        return json.dumps({"location": location, "time": "3:00 PM"})
+    elif "san francisco" in location.lower():
+        return json.dumps({"location": location, "time": "12:00 PM"})
+    elif "paris" in location.lower():
+        return json.dumps({"location": location, "time": "9:00 PM"})
+    else:
+        return "I don't know the time in " + location
+
+timeFunction = ToolWrapper(
+    function_ref= get_current_time,
+    purpose="Get the current time in a given location.",
+    location=str,
+    location_description="The city and state, e.g. San Francisco, CA",
+    required=["location"],
+)
+
+unserializedTools = [weatherFunction, timeFunction]
+tools = [tool.to_dict() for tool in unserializedTools]
+```
 
 
 
