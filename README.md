@@ -125,8 +125,8 @@ weatherFunction = ToolWrapper(
     required=["location"],
 )
 
-tools = [weatherFunction]
-serialized_tools = [tool.to_dict() for tool in tools]
+unserializedTools = [weatherFunction]
+tools = [tool.to_dict() for tool in unserializedTools]
 ```
 
 Is a direct replacement for
