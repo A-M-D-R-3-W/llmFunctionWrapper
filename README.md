@@ -4,7 +4,7 @@
 
 ## Usage
 
-### Example
+## Example
 
 A simple function calling example from LiteLLM docs:
 
