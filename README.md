@@ -59,3 +59,6 @@ print("\nLLM Response1:\n", response)
 response_message = response.choices[0].message
 tool_calls = response.choices[0].message.tool_calls
 ```
+
+
+Modified for use with llmFunctionWrapper:
