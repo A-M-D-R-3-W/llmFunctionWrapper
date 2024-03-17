@@ -4,7 +4,7 @@
 
 ## Usage
 
-## Example
+## Examples
 
 ### Simple Single Function Call
 A simple function calling example from LiteLLM docs:
@@ -209,6 +209,12 @@ Notice that the only difference is adding **timeFunction** to the **unserialized
 unserializedTools = [weatherFunction, timeFunction]
 tools = [tool.to_dict() for tool in unserializedTools]
 ```
+
+
+### Parallel Function Call
+
+
+
 
 
 
