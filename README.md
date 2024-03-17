@@ -313,7 +313,90 @@ test_parallel_function_call()
 
 Modified for use with llmFunctionWrapper:
 ```python
+import litellm
+import json
+import os
+from llmFunctionWrapper import ToolWrapper, FunctionRegistry
 
+# set openai api key
+os.environ['OPENAI_API_KEY'] = "" # litellm reads OPENAI_API_KEY from .env and sends the request
+
+# Example dummy function hard coded to return the same weather
+# In production, this could be your backend API or an external API
+def get_current_weather(location, unit="fahrenheit"):
+    """Get the current weather in a given location"""
+    if "tokyo" in location.lower():
+        return json.dumps({"location": "Tokyo", "temperature": "10", "unit": "celsius"})
+    elif "san francisco" in location.lower():
+        return json.dumps({"location": "San Francisco", "temperature": "72", "unit": "fahrenheit"})
+    elif "paris" in location.lower():
+        return json.dumps({"location": "Paris", "temperature": "22", "unit": "celsius"})
+    else:
+        return json.dumps({"location": location, "temperature": "unknown"})
+
+weatherFunction = ToolWrapper(
+    function_ref=get_current_weather,
+    purpose="Get the current weather in a given location.",
+    location=str,
+    location_description="The city and state, e.g. San Francisco, CA",
+    unit=["celsius", "fahrenheit"],
+    unit_description="The unit of temperature, e.g. celsius or fahrenheit",
+    required=["location"],
+)
+
+def test_parallel_function_call():
+    try:
+        # Step 1: send the conversation and available functions to the model
+        messages = [{"role": "user", "content": "What's the weather like in San Francisco, Tokyo, and Paris?"}]
+
+        unserializedTools = [weatherFunction]
+        tools = [tool.to_dict() for tool in unserializedTools]
+
+        response = litellm.completion(
+            model="gpt-3.5-turbo-1106",
+            messages=messages,
+            tools=tools,
+            tool_choice="auto",  # auto is default, but we'll be explicit
+        )
+        print("\nFirst LLM Response:\n", response)
+        response_message = response.choices[0].message
+        tool_calls = response_message.tool_calls
+
+        print("\nLength of tool calls", len(tool_calls))
+
+        # Step 2: check if the model wanted to call a function
+        if tool_calls:
+            # Step 3: call the function
+            # Note: the JSON response may not always be valid; be sure to handle errors
+            available_functions = FunctionRegistry.get_registry()
+            messages.append(response_message)  # extend conversation with assistant's reply
+
+            # Step 4: send the info for each function call and function response to the model
+            for tool_call in tool_calls:
+                function_name = tool_call.function.name
+                function_args = json.loads(tool_call.function.arguments)
+                function_response = FunctionRegistry.call_function(
+                    function_name,
+                    **function_args
+                )
+                messages.append(
+                    {
+                        "tool_call_id": tool_call.id,
+                        "role": "tool",
+                        "name": function_name,
+                        "content": function_response,
+                    }
+                )  # extend conversation with function response
+            second_response = litellm.completion(
+                model="gpt-3.5-turbo-1106",
+                messages=messages,
+            )  # get a new response from the model where it can see the function response
+            print("\nSecond LLM response:\n", second_response)
+            return second_response
+    except Exception as e:
+      print(f"Error occurred: {e}")
+
+test_parallel_function_call()
 ```
 
 
