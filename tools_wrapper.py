@@ -1,10 +1,36 @@
+import inspect
+
+class FunctionRegistry:
+    _registry = {}
+
+    @classmethod
+    def register_function(cls, name, function):
+        cls._registry[name] = function
+
+    @classmethod
+    def get_registry(cls):
+        return cls._registry
+
+    @classmethod
+    def call_function(cls, name, **kwargs):
+        if name in cls._registry:
+            func = cls._registry[name]
+            sig = inspect.signature(func)
+            bound_args = sig.bind(**kwargs)
+            bound_args.apply_defaults()
+
+            return func(*bound_args.args, **bound_args.kwargs)
+        else:
+            raise ValueError(f"Function {name} not registered")
+
 
 class ToolWrapper:
-    def __init__(self, name, purpose, required=None, **kwargs):
+    def __init__(self, name, purpose, required=None, function_ref=None, **kwargs):
         self.name = name
         self.purpose = purpose.strip()
         self.parameters = {}
         self.required = required or []
+        self.function_ref = function_ref
 
         for param_name, param_info in kwargs.items():
             if param_name.endswith('_description'):
@@ -17,6 +43,9 @@ class ToolWrapper:
                 true_param_name = param_name.replace('_description', '')
                 if true_param_name in self.parameters:
                     self.parameters[true_param_name]['description'] = param_description
+
+        if function_ref:
+            FunctionRegistry.register_function(name, function_ref)
 
     def _add_parameter(self, name, param_info):
 
