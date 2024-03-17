@@ -155,7 +155,9 @@ tools = [
 ]
 ```
 
+### Using Multiple Functions
 
+Let's say we want two functions - one to get the weather (in the example above), and one to get the time.
 
 
 
