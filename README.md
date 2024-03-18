@@ -16,6 +16,8 @@ Upon installation, make sure to import the package into your project.
 from llmFunctionWrapper import ToolWrapper, FunctionRegistry
 ```
 
+Note: I also recommend using [Rich](https://github.com/Textualize/rich)
+
 ## Quickstart
 
 ### 1. Defining Functions
