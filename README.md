@@ -111,8 +111,10 @@ The following is a list of data types that can be assigned to a parameter (varia
 - variable1: tuple
 - variable1: dict
 - variable1: None
+  
 In addition, enums can be assigned int, float, str, or bool.
 For example,
+
 - variable1: [12, 19, 17]
 - variable1: [18.6, 78.2, 97.0]
 - variable1: ["first", "second", "last"]
