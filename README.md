@@ -203,7 +203,7 @@ timeFunction = ToolWrapper(
 unserializedTools = [weatherFunction, timeFunction]
 tools = [tool.to_dict() for tool in unserializedTools]
 ```
-Notice that the only difference is adding **timeFunction** to the **unserializedTools** array.
+Notice that the only difference compared to calling a single function is adding **timeFunction** to the **unserializedTools** array.
 
 ```python
 unserializedTools = [weatherFunction, timeFunction]
