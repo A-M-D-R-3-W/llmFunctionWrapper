@@ -25,9 +25,9 @@ awesomeFunction = ToolWrapper(
     function_ref=an_awesome_function,
     purpose="An awesome function that does something amazing.",
     variable1=int,
-    variable1_description="The first variable that will be used to do the first awesome thing.",
+    variable1_description="The first variable that will be used to do some awesome thing.",
     variable2=["option1", "option2"],
-    variable2_description="The second variable that will be used to do the second awesome thing.",
+    variable2_description="The second variable that will be used to do another awesome thing.",
     required=["variable1", "variable2"]
 )
 ```
