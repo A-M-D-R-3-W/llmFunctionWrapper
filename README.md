@@ -15,6 +15,23 @@ def an_awesome_function(variable1, variable2="A default value for variable2"):
     return desiredVariable
 ```
 
+### 2. Wrapping your Functions
+
+Use the `ToolWrapper` class to create your function descriptions which will be passed to the LLM. Add relevant details such as purpose, parameters, and descriptions.
+
+The description will look like this:
+```python
+awesomeFunction = ToolWrapper(
+    function_ref=an_awesome_function,
+    purpose="An awesome function that does something amazing.",
+    variable1=int,
+    variable1_description="The first variable that will be used to do the first awesome thing.",
+    variable2=["option1", "option2"],
+    variable2_description="The second variable that will be used to do the second awesome thing.",
+    required=["variable1", "variable2"]
+)
+```
+
 ## Examples
 
 ### Simple Single Function Call
