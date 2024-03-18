@@ -7,7 +7,7 @@ A Python module designed to simplify the process of creating and managing functi
 
 ### 1. Defining Functions
 
-First, define your functions as you normally would for any. For example:
+First, define your functions as you normally would, in the same way OpenAI and LiteLLM expect. For example:
 
 ```python
 def an_awesome_function(variable1, variable2="A default value for variable2"):
