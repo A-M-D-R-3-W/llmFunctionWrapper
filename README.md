@@ -398,6 +398,51 @@ def test_parallel_function_call():
 
 test_parallel_function_call()
 ```
+There are a few changes that have occured.
+
+1. The function was defined using ToolWrapper(), exactly as was explained in the **Simple Single Function Call** example provided.
+2. The method for passing functions to call has changed as shown below:
+
+```python
+# Step 2: check if the model wanted to call a function
+        if tool_calls:
+            # Step 3: call the function
+            # Note: the JSON response may not always be valid; be sure to handle errors
+            available_functions = {
+                "get_current_weather": get_current_weather,
+            }  # only one function in this example, but you can have multiple
+            messages.append(response_message)  # extend conversation with assistant's reply
+
+            # Step 4: send the info for each function call and function response to the model
+            for tool_call in tool_calls:
+                function_name = tool_call.function.name
+                function_to_call = available_functions[function_name]
+                function_args = json.loads(tool_call.function.arguments)
+                function_response = function_to_call(
+                    location=function_args.get("location"),
+                    unit=function_args.get("unit"),
+                )
+```
+Has became
+
+```python
+# Step 2: check if the model wanted to call a function
+        if tool_calls:
+            # Step 3: call the function
+            # Note: the JSON response may not always be valid; be sure to handle errors
+            messages.append(response_message)  # extend conversation with assistant's reply
+
+            # Step 4: send the info for each function call and function response to the model
+            for tool_call in tool_calls:
+                function_name = tool_call.function.name
+                function_args = json.loads(tool_call.function.arguments)
+                function_response = FunctionRegistry.call_function(
+                    function_name,
+                    **function_args
+                )
+```
+
+With this setup, there is no longer a need to specify individual functions/arguments to call, the entire process is automated.
 
 
 
