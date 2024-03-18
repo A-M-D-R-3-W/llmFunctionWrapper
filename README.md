@@ -58,7 +58,7 @@ response = litellm.completion(
 ### Required and Optional Parameters:
 - `function_ref` (Required, `callable`): The actual Python function that this wrapper is meant to represent, and which will be called by the LLM. This parameter must be a callable object (e.g., a function or a method).
   ```python
-  function_ref=theFunctionToBeCalled
+  function_ref=get_current_weather
   ```
 
 - `purpose` (Required, `str`): A brief description of what the wrapped function does. This should be a human-readable string that clearly communicates the function's purpose.
@@ -76,8 +76,17 @@ response = litellm.completion(
   
   For each parameter of the function assigned to `function_ref`, you can provide:
   - The parameter type by simply specifying a Python type (e.g., `str`, `int`, etc.) as the value that the parameter expects as input.
+    ```python
+    location=str
+    ```
   - For enum parameters, instead of a single type, you provide a list of allowable values (e.g., `["celsius", "fahrenheit"]` for a temperature unit parameter).
+    ```python
+    unit=["celsius", "fahrenheit"]
+    ```
   - You can also append `_description` to any parameter name (e.g., `location_description`) as an additional key to provide a human-readable description of what that parameter is for. ***Every parameter should have an accompanying description key.***
+    ```python
+    location_description="The city and state, e.g. San Francisco, CA"
+    ```
 
 ## Examples
 
