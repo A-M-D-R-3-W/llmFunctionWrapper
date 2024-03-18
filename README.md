@@ -16,7 +16,11 @@ Upon installation, make sure to import the package into your project.
 from llmFunctionWrapper import ToolWrapper, FunctionRegistry
 ```
 
-Note: I also recommend using [Rich](https://github.com/Textualize/rich)
+Note: Not required, but I also recommend using `print` from [Rich](https://github.com/Textualize/rich) for nice JSON formatting among other things. Rich is used in the attached example.
+
+```python
+from rich import print
+```
 
 ## Quickstart
 
