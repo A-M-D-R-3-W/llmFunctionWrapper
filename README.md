@@ -1,5 +1,6 @@
 # llmFunctionWrapper
 
+A Python module designed to simplify the process of creating and managing function calls to OpenAI's API, and models using LiteLLM's framework.
 
 
 ## Usage
