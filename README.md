@@ -56,7 +56,7 @@ Alternatively, you can serialize each function individually in-line:
 ```python
 tools = [awesomeFunction.to_dict(), otherFunction.to_dict()]
 ```
-After serializing, submit your **tools** variable in your request, in the same way as before.
+After serializing, submit your `tools` list in your request, in the same way as before.
 ```python
 response = litellm.completion(
             model="gpt-3.5-turbo-1106",
@@ -96,7 +96,7 @@ response = litellm.completion(
     ```python
     unit=["celsius", "fahrenheit"]
     ```
-  - You can also append `_description` to any parameter name (e.g., `location_description`) as an additional key to provide a human-readable description of what that parameter is for. ***Every parameter should have an accompanying description key.***
+  - You can also append `_description` to any parameter name (e.g., `location_description`) as an additional key to provide a human-readable description of what that parameter is for. ***⚠️Every parameter should have an accompanying description key.⚠️***
     ```python
     location_description="The city and state, e.g. San Francisco, CA"
     ```
@@ -116,25 +116,25 @@ weatherFunction = ToolWrapper(
 
 ### Permissible Data Types
 The following is a list of data types that can be assigned to a parameter (variable).
-- variable1=int
-- variable1=float
-- variable1=str
-- variable1=bool
-- variable1=list
-- variable1=tuple
-- variable1=dict
-- variable1=None
+- variable1=`int`
+- variable1=`float`
+- variable1=`str`
+- variable1=`bool`
+- variable1=`list`
+- variable1=`tuple`
+- variable1=`dict`
+- variable1=`None`
   
 In addition, enums can be assigned int, float, str, or bool.
 For example,
 
-- variable1=[12, 19, 17]
-- variable1=[18.6, 78.2, 97.0]
-- variable1=["first", "second", "last"]
-- variable1=[True, False]
+- variable1=`[12, 19, 17]`
+- variable1=`[18.6, 78.2, 97.0]`
+- variable1=`["first", "second", "last"]`
+- variable1=`[True, False]`
 
 Enums can also have various data types. For example,
-- variable1=[15, 17.2, "hello", True]
+- variable1=`[15, 17.2, "hello", True]`
 
 ## FunctionRegistry
 
