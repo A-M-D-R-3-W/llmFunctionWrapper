@@ -4,6 +4,9 @@ A Python package designed to simplify the process of creating and managing funct
 
 ![Demo_llmFunctionWrapper](https://github.com/A-M-D-R-3-W/llmFunctionWrapper/assets/84816543/a7c0f6d8-9bbc-4ea4-a09d-9c709beed7fd)
 
+## Examples
+
+Examples (A separate readme and project files) are located in the `examples/` folder [here](examples/)
 
 ## Installation
 
@@ -158,7 +161,3 @@ The `FunctionRegistry` class serves as a central repository for all functions th
 - `call_function(name, **kwargs)`: Calls a registered function by name, passing keyword arguments.
 
 An example of the `FuctionRegistry` class is provided in the **Parallel Function Call** example.
-
-## Examples
-
-Examples are located in the `examples/` folder [here](examples/)
