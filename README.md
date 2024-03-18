@@ -19,7 +19,7 @@ def an_awesome_function(variable1, variable2="A default value for variable2"):
 
 Use the `ToolWrapper` class to create your function descriptions which will be passed to the LLM. Add relevant details such as purpose, parameters, and descriptions.
 
-The description will look like this:
+The description will look something like this:
 ```python
 awesomeFunction = ToolWrapper(
     function_ref=an_awesome_function,
