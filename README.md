@@ -161,4 +161,4 @@ An example of the `FuctionRegistry` class is provided in the **Parallel Function
 
 ## Examples
 
-Examples are located in the `examples/` folder [here](examples/examples.md)
+Examples are located in the `examples/` folder [here](examples/)
