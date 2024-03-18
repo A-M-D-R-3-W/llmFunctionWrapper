@@ -66,9 +66,9 @@ response = litellm.completion(
 - `**kwargs`: In addition to the parameters mentioned above, you can specify any number of additional keyword arguments. These are used to define the parameters that the function assigned to `function_ref` takes. The keys should be the names of the parameters, and the values should define their types, allowable values (for enums), and descriptions.
   
   For each parameter of the function assigned to `function_ref`, you can provide:
-  - The parameter type by simply specifying a Python type (e.g., `str`, `int`, etc.) as the value in `kwargs`.
+  - The parameter type by simply specifying a Python type (e.g., `str`, `int`, etc.) as the value that the parameter expects as input.
   - For enum parameters, instead of a single type, you provide a list of allowable values (e.g., `["celsius", "fahrenheit"]` for a temperature unit parameter).
-  - You can also append `_description` to any parameter name (e.g., `location_description`) as an additional key in `kwargs` to provide a human-readable description of what that parameter is for.
+  - You can also append `_description` to any parameter name (e.g., `location_description`) as an additional key to provide a human-readable description of what that parameter is for. ***Every parameter should have an accompanying description key.***
 
 ## Examples
 
