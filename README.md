@@ -101,6 +101,23 @@ weatherFunction = ToolWrapper(
 )
 ```
 
+### Permissible Data Types
+The following is a list of data types that can be assigned to a parameter (variable).
+- variable1: int
+- variable1: float
+- variable1: str
+- variable1: bool
+- variable1: list
+- variable1: tuple
+- variable1: dict
+- variable1: None
+In addition, enums can be assigned int, float, str, or bool.
+For example,
+- variable1: [12, 19, 17]
+- variable1: [18.6, 78.2, 97.0]
+- variable1: ["first", "second", "last"]
+- variable1: [True, False]
+
 ## Examples
 
 ### Simple Single Function Call
