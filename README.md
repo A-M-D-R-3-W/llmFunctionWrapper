@@ -123,15 +123,17 @@ For example,
 Enums can also have various data types. For example,
 - variable1=[15, 17.2, "hello", True]
 
-## `FunctionRegistry`
+## FunctionRegistry
 
-The `FunctionRegistry` class serves as a central repository for all functions that can be called by the language model. It ensures that functions are uniquely identified by their names and can be invoked dynamically with arguments specified at runtime.
+The `FunctionRegistry` class serves as a central repository for all functions that can be called by the LLM. It ensures that functions are uniquely identified by their names and can be invoked dynamically with arguments specified at runtime.
 
 ### Key Methods
 
 - `register_function(name, function)`: Registers a function under a given name. This will never* need to be called directly as it is automatically handled by the `ToolWrapper` class.
 - `get_registry()`: Returns the current registry of functions.
 - `call_function(name, **kwargs)`: Calls a registered function by name, passing keyword arguments.
+
+An example of the `FuctionRegistry` class is provided in the **Parallel Function Call** example.
 
 ## Examples
 
