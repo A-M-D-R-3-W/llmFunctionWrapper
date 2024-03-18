@@ -38,7 +38,6 @@ Before you make your API request, you must serialize your function descriptions 
 ```python
 unserializedTools = [awesomeFunction]
 tools = [tool.to_dict() for tool in unserializedTools]
-)
 ```
 Alternatively, you can serialize each function individually in-line:
 ```python
