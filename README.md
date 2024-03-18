@@ -57,10 +57,19 @@ response = litellm.completion(
 
 ### Required and Optional Parameters:
 - `function_ref` (Required, `callable`): The actual Python function that this wrapper is meant to represent, and which will be called by the LLM. This parameter must be a callable object (e.g., a function or a method).
+  ```python
+  function_ref=theFunctionToBeCalled
+  ```
 
 - `purpose` (Required, `str`): A brief description of what the wrapped function does. This should be a human-readable string that clearly communicates the function's purpose.
+  ```python
+  purpose="Get the current weather in a given location"
+  ```
   
 - `required` (Optional, `list` of `str`): A list of parameter names that are required for the function to operate. This is useful for specifying which parameters cannot be omitted when calling the function.
+  ```python
+  required=["location", "unit"]
+  ```
 
 ### Parameter Keyword Arguments (Dynamic):
 - `**kwargs`: In addition to the parameters mentioned above, you can specify any number of additional keyword arguments. These are used to define the parameters that the function assigned to `function_ref` takes. The keys should be the names of the parameters, and the values should define their types or allowable values (for enums).
