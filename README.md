@@ -63,7 +63,7 @@ response = litellm.completion(
 - `required` (Optional, `list` of `str`): A list of parameter names that are required for the function to operate. This is useful for specifying which parameters cannot be omitted when calling the function.
 
 ### Parameter Keyword Arguments (Dynamic):
-- `**kwargs`: In addition to the parameters mentioned above, you can specify any number of additional keyword arguments. These are used to define the parameters that the function assigned to `function_ref` takes. The keys should be the names of the parameters, and the values should define their types, allowable values (for enums), and descriptions.
+- `**kwargs`: In addition to the parameters mentioned above, you can specify any number of additional keyword arguments. These are used to define the parameters that the function assigned to `function_ref` takes. The keys should be the names of the parameters, and the values should define their types or allowable values (for enums).
   
   For each parameter of the function assigned to `function_ref`, you can provide:
   - The parameter type by simply specifying a Python type (e.g., `str`, `int`, etc.) as the value that the parameter expects as input.
