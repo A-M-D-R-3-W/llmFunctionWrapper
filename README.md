@@ -403,6 +403,7 @@ There are a few changes that have occured.
 1. The function was defined using ToolWrapper(), exactly as was explained in the **Simple Single Function Call** example provided.
 2. The method for passing functions to call has changed as shown below:
 
+The original implementation
 ```python
 # Step 2: check if the model wanted to call a function
         if tool_calls:
