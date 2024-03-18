@@ -2,6 +2,9 @@
 
 A Python package designed to simplify the process of creating and managing function calls to OpenAI's API, as well as models using LiteLLM's API framework.
 
+![Demo_llmFunctionWrapper](https://github.com/A-M-D-R-3-W/llmFunctionWrapper/assets/84816543/a7c0f6d8-9bbc-4ea4-a09d-9c709beed7fd)
+
+
 ## Installation
 
 `llmFunctionWrapper` is available on PyPi, so installation is easy.
