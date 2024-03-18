@@ -104,13 +104,13 @@ response = litellm.completion(
     Putting this all together, we get our function description.
 ```python
 weatherFunction = ToolWrapper(
-    function_ref=get_current_weather,
-    purpose="Get the current weather in a given location.",
-    location=str,
-    location_description="The city and state, e.g. San Francisco, CA",
-    unit=["celsius", "fahrenheit"],
-    unit_description="The unit of temperature, e.g. celsius or fahrenheit",
-    required=["location"],
+    function_ref=get_current_weather,                                           # function reference
+    purpose="Get the current weather in a given location.",                     # description of the function
+    location=str,                                                               # type of the location argument
+    location_description="The city and state, e.g. San Francisco, CA",          # description of the location argument
+    unit=["celsius", "fahrenheit"],                                             # possible values for the unit argument
+    unit_description="The unit of temperature, e.g. celsius or fahrenheit",     # description of the unit argument
+    required=["location"],                                                      # required arguments
 )
 ```
 
