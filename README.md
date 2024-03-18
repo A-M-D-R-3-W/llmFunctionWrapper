@@ -588,9 +588,3 @@ Has became
 ```
 
 With this setup, there is no longer a need to specify individual functions/arguments to call, the entire process is automated.
-
-
-
-```python
-
-```
