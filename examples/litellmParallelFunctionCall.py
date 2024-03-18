@@ -1,3 +1,5 @@
+'''Modified example from https://litellm.vercel.app/docs/completion/function_call for use with llmFunctionWrapper'''
+
 import litellm
 import json
 import os
