@@ -1,4 +1,4 @@
-'''Modified from https://platform.openai.com/docs/guides/function-calling for use with llmFunctionWrapper'''
+'''Modified example from https://platform.openai.com/docs/guides/function-calling for use with llmFunctionWrapper'''
 
 from openai import OpenAI
 import json
