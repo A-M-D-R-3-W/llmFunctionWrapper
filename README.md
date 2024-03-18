@@ -55,6 +55,20 @@ response = litellm.completion(
 
 ## Detailed Look at Creating Your ToolWrapper() Function Descriptions
 
+### Required and Optional Parameters:
+- `purpose` (Required, `str`): A brief description of what the wrapped function does. This should be a human-readable string that clearly communicates the function's purpose.
+  
+- `required` (Optional, `list` of `str`): A list of parameter names that are required for the function to operate. This is useful for specifying which parameters cannot be omitted when calling the function.
+
+- `function_ref` (Required, `callable`): The actual Python function that this wrapper is meant to represent. This function will be called when the wrapped version is invoked through the `FunctionRegistry`. This parameter must be a callable object (e.g., a function or a method).
+
+### Keyword Arguments (Dynamic):
+- `**kwargs`: In addition to the parameters mentioned above, you can specify any number of additional keyword arguments. These are used to define the parameters that the `function_ref` takes. The keys should be the names of the parameters, and the values should define their types, allowable values (for enums), and descriptions.
+  
+  For each parameter of the `function_ref`, you can provide:
+  - The parameter type by simply specifying a Python type (e.g., `str`, `int`, etc.) as the value in `kwargs`.
+  - For enum parameters, instead of a single type, you provide a list of allowable values (e.g., `["celsius", "fahrenheit"]` for a temperature unit parameter).
+  - You can also append `_description` to any parameter name (e.g., `location_description`) as an additional key in `kwargs` to provide a human-readable description of what that parameter is for.
 
 ## Examples
 
