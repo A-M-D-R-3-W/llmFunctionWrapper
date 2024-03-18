@@ -5,6 +5,16 @@ A Python module designed to simplify the process of creating and managing functi
 
 ## Quickstart
 
+### 1. Defining Functions
+
+First, define your functions as you normally would for any. For example:
+
+```python
+def an_awesome_function(variable1, variable2="A default value for variable2"):
+    # Function body ...
+    return desiredVariable
+```
+
 ## Examples
 
 ### Simple Single Function Call
