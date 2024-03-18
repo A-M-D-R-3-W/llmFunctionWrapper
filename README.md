@@ -36,7 +36,7 @@ awesomeFunction = ToolWrapper(
 
 Before you make your API request, you must serialize your function descriptions in OpenAI and LiteLLM's tool format.
 ```python
-unserializedTools = [awesomeFunction] # If you have multiple functions, they must all be listed here. Ex. userializedTools = [awesomeFunction, otherFunction]
+unserializedTools = [awesomeFunction] # If you have multiple functions, they must all be listed here. Ex. unserializedTools = [awesomeFunction, otherFunction]
 tools = [tool.to_dict() for tool in unserializedTools]
 ```
 Alternatively, you can serialize each function individually in-line:
