@@ -140,6 +140,8 @@ Enums can also have various data types. For example,
 
 The `FunctionRegistry` class serves as a central repository for all functions that can be called by the LLM. It ensures that functions are uniquely identified by their names and can be invoked dynamically with arguments specified at runtime.
 
+***Note: This class may not be needed - I might be missing a simpler implementation.***
+
 ### Key Methods
 
 - `register_function(name, function)`: Registers a function under a given name. This will never* need to be called directly as it is automatically handled by the `ToolWrapper` class.
