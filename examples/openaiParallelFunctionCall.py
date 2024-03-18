@@ -1,3 +1,5 @@
+'''Modified from https://platform.openai.com/docs/guides/function-calling for use with llmFunctionWrapper'''
+
 from openai import OpenAI
 import json
 from llmFunctionWrapper import ToolWrapper, FunctionRegistry
