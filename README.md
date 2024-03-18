@@ -53,6 +53,9 @@ response = litellm.completion(
 )
 ```
 
+## Detailed Look at Creating Your ToolWrapper() Function Descriptions
+
+
 ## Examples
 
 ### Simple Single Function Call
