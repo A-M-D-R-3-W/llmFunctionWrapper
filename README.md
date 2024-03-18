@@ -50,7 +50,7 @@ response = litellm.completion(
             messages=messages,
             tools=tools,
             tool_choice="auto",
-        )
+)
 ```
 
 ## Examples
