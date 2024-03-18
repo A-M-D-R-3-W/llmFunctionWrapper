@@ -56,7 +56,7 @@ response = litellm.completion(
 ## Detailed Look at Creating Your ToolWrapper() Function Descriptions
 
 ### Required and Optional Parameters:
-- `function_ref` (Required, `callable`): The actual Python function that this wrapper is meant to represent. This is the actual function that will be called by by the LLM. This parameter must be a callable object (e.g., a function or a method).
+- `function_ref` (Required, `callable`): The actual Python function that this wrapper is meant to represent, and which will be called by the LLM. This parameter must be a callable object (e.g., a function or a method).
 
 - `purpose` (Required, `str`): A brief description of what the wrapped function does. This should be a human-readable string that clearly communicates the function's purpose.
   
