@@ -121,7 +121,7 @@ For example,
 - variable1=[True, False]
 
 Enums can also have various data types. For example,
-- variable1==[15, 17.2, "hello", True]
+- variable1=[15, 17.2, "hello", True]
 
 ## Examples
 
