@@ -98,13 +98,13 @@ weatherFunction = ToolWrapper(
 
 messages = [{"role": "user", "content": "What's the weather like in San Francisco, Tokyo, and Paris?"}]
 
-tools = [weatherFunction]
-serialized_tools = [tool.to_dict() for tool in tools]
+unserializedTools = [weatherFunction]
+tools = [tool.to_dict() for tool in unserializedTools]
 
 response = litellm.completion(
     model="gpt-3.5-turbo-1106",
     messages=messages,
-    tools=serialized_tools,
+    tools=tools,
     tool_choice="auto",  # auto is default, but we'll be explicit
 )
 print("\nLLM Response1:\n", response)
