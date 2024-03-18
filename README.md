@@ -42,7 +42,15 @@ tools = [tool.to_dict() for tool in unserializedTools]
 Alternatively, you can serialize each function individually in-line:
 ```python
 tools = [awesomeFunction.to_dict(), otherFunction.to_dict()]
-)
+```
+After serializing, submit your **tools** variable in your request, in the same way as before.
+```python
+response = litellm.completion(
+            model="gpt-3.5-turbo-1106",
+            messages=messages,
+            tools=tools,
+            tool_choice="auto",
+        )
 ```
 
 ## Examples
