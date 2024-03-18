@@ -298,7 +298,7 @@ tools = [
     }
 ]
 ```
-
+___
 ### Using Multiple Functions
 
 Let's say we want two functions - one to get the weather (from the example above), and one to get the time.
@@ -354,7 +354,7 @@ unserializedTools = [weatherFunction, timeFunction]
 tools = [tool.to_dict() for tool in unserializedTools]
 ```
 
-
+___
 ### Parallel Function Call
 
 Expanding upon the example given above, we can utilize parallel function calling with various optimizations as well. The following example was pulled from LiteLLM docs:
